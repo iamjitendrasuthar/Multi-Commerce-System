@@ -167,7 +167,7 @@ const Navbar = () => {
               <div
                 className={`relative flex items-center h-11 rounded-full overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] ${
                   searchExpanded
-                    ? "bg-zinc-100 w-[calc(100vw-110px)] sm:w-[260px]"
+                    ? "bg-zinc-100 w-[calc(100vw-110px)] sm:w-[450px]"
                     : "bg-transparent hover:bg-zinc-100 w-[44px]"
                 }`}
               >
@@ -185,7 +185,7 @@ const Navbar = () => {
                   type="text"
                   placeholder="Search products..."
                   onBlur={() => setSearchExpanded(false)}
-                  className={`w-full h-full pl-11 pr-10 bg-transparent outline-none text-sm transition-opacity duration-300 placeholder:text-zinc-400 ${
+                  className={`w-full h-full pl-11 pr-10 bg-transparent outline-none text-sm text-zinc-950 transition-opacity duration-300 placeholder:text-zinc-400 ${
                     searchExpanded
                       ? "opacity-100"
                       : "opacity-0 pointer-events-none"
