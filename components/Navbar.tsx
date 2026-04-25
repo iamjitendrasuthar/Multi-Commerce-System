@@ -249,6 +249,7 @@ const Navbar = () => {
                 <div
                   key={cat.name}
                   className="relative group py-4 cursor-pointer"
+                  // @ts-ignore
                   onMouseEnter={() => setActiveCategory(cat.name)}
                   onMouseLeave={() => setActiveCategory(null)}
                 >

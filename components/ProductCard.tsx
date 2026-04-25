@@ -423,6 +423,7 @@ export const TrendingSection = ({ type = "trending" }) => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   // Jo 'type' pass karoge uska data uthayega
+  // @ts-ignore
   const config = DATA_STORE[type] || DATA_STORE.trending;
 
   const updateScrollProgress = () => {
@@ -433,9 +434,10 @@ export const TrendingSection = ({ type = "trending" }) => {
     }
   };
 
-  const scroll = (direction) => {
+  const scroll = (direction: any) => {
     if (scrollRef.current) {
       const offset = direction === "left" ? -360 : 340;
+      // @ts-ignore
       scrollRef.current.scrollBy({ left: offset, behavior: "smooth" });
     }
   };
@@ -481,7 +483,7 @@ export const TrendingSection = ({ type = "trending" }) => {
           onScroll={updateScrollProgress}
           className="flex gap-8 overflow-x-auto no-scrollbar scroll-smooth snap-x pb-12"
         >
-          {config.items.map((product, i) => (
+          {config.items.map((product: any, i: any) => (
             <motion.div
               key={product.id}
               initial={{ opacity: 0, y: 30 }}
