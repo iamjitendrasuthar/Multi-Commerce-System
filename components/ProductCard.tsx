@@ -61,6 +61,16 @@ const DATA_STORE = {
         badge: "Rare Find",
         category: "Essentials",
       },
+      {
+        id: 5,
+        name: "Smart Ergo Office Chair",
+        price: 8999,
+        originalPrice: 12000,
+        rating: 4.6,
+        img: "https://images.unsplash.com/photo-1580480055273-228ff5388ef8?q=80&w=800",
+        badge: "20% OFF",
+        category: "Workplace",
+      },
     ],
   },
   latest: {
@@ -108,6 +118,16 @@ const DATA_STORE = {
         badge: "Handmade",
         category: "Fashion",
       },
+      {
+        id: 9,
+        name: "Aura Diffuser",
+        price: 2199,
+        originalPrice: 2999,
+        rating: 4.7,
+        img: "https://images.unsplash.com/photo-1635750602248-b1d99ceef563?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fEF1cmElMjBEaWZmdXNlcnxlbnwwfDB8MHx8fDA%3D",
+        badge: "Wellness",
+        category: "Living",
+      },
     ],
   },
   toprated: {
@@ -154,6 +174,16 @@ const DATA_STORE = {
         img: "https://images.unsplash.com/photo-1566676144477-2f0fa75e3ab5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fE92ZXJzaXplZCUyMExpbmVuJTIwU2hpcnQlMjBtYW58ZW58MHwwfDB8fHww",
         badge: "Eco-Friendly",
         category: "Fashion",
+      },
+      {
+        id: 13,
+        name: "Ergo Desk Pro",
+        price: 34999,
+        originalPrice: 40000,
+        rating: 4.9,
+        img: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?q=80&w=800",
+        badge: "Premium",
+        category: "Workplace",
       },
     ],
   },
@@ -235,7 +265,7 @@ export const TrendingSection = ({ type = "trending" }) => {
                 ease: [0.19, 1, 0.22, 1],
               }}
               viewport={{ once: true }}
-              className="min-w-[280px] sm:min-w-[300px] snap-start group cursor-pointer"
+              className="min-w-[75%] md:min-w-[340px] snap-start group cursor-pointer"
             >
               <div className="relative aspect-square rounded-[2.5rem] overflow-hidden bg-[#fcfcfc] border border-zinc-100 transition-all duration-700 group-hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] group-hover:-translate-y-2">
                 <img
@@ -344,12 +374,15 @@ export const TrendingSection = ({ type = "trending" }) => {
       </div>
 
       <style jsx>{`
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
+        .no-scrollbar {
+          -ms-overflow-style: none; /* IE & Edge */
+          scrollbar-width: none; /* Firefox */
         }
-        .outline-text {
-          -webkit-text-stroke: 1px #e5e7eb;
-          color: transparent;
+
+        .no-scrollbar::-webkit-scrollbar {
+          display: none; /* Chrome, Safari */
+          width: 0;
+          height: 0;
         }
       `}</style>
     </section>
