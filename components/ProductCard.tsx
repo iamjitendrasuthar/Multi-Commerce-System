@@ -235,7 +235,7 @@ export const TrendingSection = ({ type = "trending" }) => {
                 ease: [0.19, 1, 0.22, 1],
               }}
               viewport={{ once: true }}
-              className="min-w-[75%] md:min-w-[340px] snap-start group cursor-pointer"
+              className="min-w-[280px] sm:min-w-[300px] snap-start group cursor-pointer"
             >
               <div className="relative aspect-square rounded-[2.5rem] overflow-hidden bg-[#fcfcfc] border border-zinc-100 transition-all duration-700 group-hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] group-hover:-translate-y-2">
                 <img
