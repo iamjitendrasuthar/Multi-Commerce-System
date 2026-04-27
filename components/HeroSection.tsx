@@ -296,7 +296,7 @@ const HeroBanner = () => {
       />
       {/* 3. MAIN CONTENT LAYER */}
       <div className="relative z-10 min-h-[100dvh] flex flex-col">
-        <div className="container mx-auto px-6 lg:px-12 flex-grow flex flex-col justify-end lg:justify-end pb-12 lg:pb-0">
+        <div className="container mx-auto px-6 lg:px-12 flex-grow flex flex-col justify-center lg:justify-center pb-12 lg:pb-0">
           {" "}
           <div className="max-w-xl space-y-6 lg:space-y-10">
             <motion.div
