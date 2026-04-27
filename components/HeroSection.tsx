@@ -99,8 +99,12 @@ const HeroEcommerce = () => {
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <button className="bg-white text-black px-10 py-5 rounded-full font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-blue-600 hover:text-white transition-all duration-500 group">
-                  Add to Cart <ShoppingBag size={16} />
+                <button className="relative overflow-hidden bg-white text-black px-10 py-5 rounded-full font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3 group transition-all duration-500">
+                  <span className="relative z-10 flex items-center gap-3 group-hover:text-white transition-colors duration-500">
+                    Add to Cart <ShoppingBag size={16} />
+                  </span>
+
+                  <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                 </button>
                 <button className="border border-white/10 bg-white/5 backdrop-blur-md text-white px-10 py-5 rounded-full font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-white/10 transition-all group">
                   Quick View{" "}
