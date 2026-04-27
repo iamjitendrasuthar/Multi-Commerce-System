@@ -22,7 +22,63 @@ import {
   ChevronDown,
 } from "lucide-react";
 
-const PRODUCT_DATA = {
+type Offer = {
+  title: string;
+  desc: string;
+};
+
+// Service type (icon ReactNode hoga)
+type Service = {
+  icon: React.ReactNode;
+  label: string;
+};
+
+// Tech Specs
+type TechSpec = {
+  label: string;
+  value: string;
+};
+
+// FAQ
+type FAQ = {
+  q: string;
+  a: string;
+};
+
+// Similar Product
+type SimilarProduct = {
+  id: number;
+  name: string;
+  price: number;
+  img: string;
+};
+
+// Main Product Type
+export type Product = {
+  id: string;
+  name: string;
+  category: string;
+  price: number;
+  originalPrice: number;
+  rating: number;
+  reviewsCount: string;
+  seller: string;
+  stockStatus: string;
+  deliveryBy: string;
+  origin: string;
+  description: string;
+
+  offers: Offer[];
+  services: Service[];
+  techSpecs: TechSpec[];
+  faqs: FAQ[];
+  images: string[];
+  similarProducts: SimilarProduct[];
+
+  // optional future fields
+  emi?: string;
+};
+const PRODUCT_DATA: Product = {
   id: "PROD-102",
   name: "AERO AUDIO PRO MAX",
   category: "PREMIUM ACOUSTICS",
@@ -295,7 +351,7 @@ export default function ProductPage() {
                 </div>
               </div>
               <p className="text-[11px] font-bold text-zinc-500 uppercase tracking-widest flex items-center gap-2 pt-2">
-                <CreditCard size={14} className="text-blue-600" />{" "}
+                <CreditCard size={14} className="text-blue-600" />
                 {PRODUCT_DATA.emi}
               </p>
             </div>
