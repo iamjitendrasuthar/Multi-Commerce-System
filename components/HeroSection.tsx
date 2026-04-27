@@ -317,7 +317,7 @@ const HeroBanner = () => {
               {/* Title - Optimized for mobile tap impact */}
               <h1 className="text-5xl md:text-8xl lg:text-[110px] font-black text-white leading-[0.9] tracking-tighter">
                 {slides[activeIdx].title.split(" ")[0]} <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-500 italic font-light drop-shadow-2xl">
+                <span className="inline-block px-2 pb-2 text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-500 italic font-light drop-shadow-2xl">
                   {slides[activeIdx].title.split(" ").slice(1).join(" ")}
                 </span>
               </h1>
