@@ -14,6 +14,10 @@ import {
   ArrowRight,
   ArrowUpRight,
   User,
+  Globe,
+  Compass,
+  ChevronRight,
+  ChevronLeft,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -21,7 +25,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [activeCategory, setActiveCategory] = useState(null);
-
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
   // Expandable Search State
   const [searchExpanded, setSearchExpanded] = useState(false);
 
@@ -97,16 +101,6 @@ const Navbar = () => {
         "Vases",
       ],
     },
-  ];
-
-  const menuItems = [
-    { name: "New Arrivals", hot: true },
-    { name: "Trending Now", count: "24+" },
-    {
-      name: "Electronics",
-      categories: ["Audio", "Phones", "Gaming", "Laptops"],
-    },
-    { name: "Lifestyle", categories: ["Home", "Fitness", "Travel", "Decor"] },
   ];
 
   return (
@@ -320,78 +314,142 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* --- MOBILE DROPDOWN DESIGN --- */}
+        {/* --- COMPACT PREMIUM MOBILE DROPDOWN --- */}
         <AnimatePresence>
           {mobileMenu && (
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3, ease: [0.19, 1, 0.22, 1] }}
-              className="absolute top-full left-0 w-full bg-white border-t border-zinc-100 shadow-[0_30px_100px_rgba(0,0,0,0.1)] lg:hidden z-[200] overflow-hidden"
+              // Left side se slide karne ke liye x: "-100%"
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
+              className="fixed inset-0 top-0 left-0 w-full h-[100dvh] bg-white lg:hidden z-[300] flex flex-col shadow-2xl"
             >
-              <div className="h-[calc(100dvh-5rem)] overflow-y-auto flex flex-col">
-                <div className="px-6 py-8">
-                  <p className="text-[10px] font-black text-zinc-300 uppercase tracking-[0.3em] mb-8">
-                    Exploration
-                  </p>
-                  <div className="flex flex-col gap-6">
-                    {menuItems.map((item, i) => (
-                      <motion.div
-                        key={item.name}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.05 }}
-                      >
-                        <Link
-                          href="#"
-                          className="group flex items-center justify-between py-2"
-                          onClick={() => setMobileMenu(false)}
-                        >
-                          <div className="flex items-center gap-4">
-                            <span className="text-4xl font-bold tracking-tighter text-zinc-900 group-hover:text-blue-600 transition-colors">
-                              {item.name}
-                            </span>
-                            {item.count && (
-                              <span className="text-[10px] font-bold px-2 py-0.5 bg-zinc-100 rounded-full text-zinc-400">
-                                {item.count}
+              {/* 1. HEADER (Inside Dropdown) */}
+              <div className="p-6 flex items-center justify-between border-b border-zinc-50">
+                {activeSubmenu ? (
+                  <button
+                    onClick={() => setActiveSubmenu(null)}
+                    className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-600"
+                  >
+                    <ChevronLeft size={16} /> Back
+                  </button>
+                ) : (
+                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400">
+                    Menu
+                  </span>
+                )}
+                <button
+                  onClick={() => {
+                    setMobileMenu(false);
+                    setActiveSubmenu(null);
+                  }}
+                >
+                  <X size={24} className="text-zinc-950" />
+                </button>
+              </div>
+
+              {/* 2. SCROLLABLE CONTENT AREA */}
+              <div className="flex-grow overflow-y-auto no-scrollbar relative">
+                <AnimatePresence mode="wait">
+                  {!activeSubmenu ? (
+                    // MAIN MENU
+                    <motion.div
+                      key="main-menu"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      className="px-8 py-6 space-y-6"
+                    >
+                      <div className="flex flex-col gap-5">
+                        {categories.map((cat, i) => (
+                          <button
+                            key={cat.name}
+                            onClick={() => setActiveSubmenu(cat)}
+                            className="flex items-center justify-between group"
+                          >
+                            <div className="flex items-center gap-4">
+                              <span className="text-[10px] font-bold text-zinc-300 tabular-nums">
+                                0{i + 1}
                               </span>
-                            )}
-                          </div>
-                          <ArrowRight
-                            className="text-zinc-200 group-hover:text-blue-600 group-hover:translate-x-2 transition-all"
-                            size={24}
-                          />
+                              <span className="text-xl font-bold tracking-tight text-zinc-950 uppercase">
+                                {cat.name}
+                              </span>
+                            </div>
+                            <ChevronRight size={18} className="text-zinc-300" />
+                          </button>
+                        ))}
+                      </div>
+
+                      {/* Quick Links Grid */}
+                      <div className="grid grid-cols-2 gap-3 pt-6">
+                        <Link
+                          href="/wishlist"
+                          className="flex items-center gap-3 p-4 bg-zinc-50 rounded-2xl"
+                        >
+                          <Heart size={16} className="text-zinc-400" />
+                          <span className="text-[9px] font-black uppercase text-zinc-950">
+                            Wishlist
+                          </span>
                         </Link>
-                      </motion.div>
-                    ))}
-                  </div>
+                        <Link
+                          href="/account"
+                          className="flex items-center gap-3 p-4 bg-zinc-50 rounded-2xl"
+                        >
+                          <User size={16} className="text-zinc-400" />
+                          <span className="text-[9px] font-black uppercase text-zinc-950">
+                            Account
+                          </span>
+                        </Link>
+                      </div>
+                    </motion.div>
+                  ) : (
+                    // SUBMENU (Categories)
+                    <motion.div
+                      key="sub-menu"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 20 }}
+                      className="px-8 py-6 space-y-8"
+                    >
+                      <div>
+                        <h3 className="text-3xl font-black tracking-tighter text-zinc-950 uppercase mb-2">
+                          {activeSubmenu.name}
+                        </h3>
+                        <p className="text-[10px] font-bold text-blue-600 uppercase tracking-widest italic">
+                          Featured: {activeSubmenu.featured}
+                        </p>
+                      </div>
 
-                  <div className="mt-12 grid grid-cols-2 gap-4">
-                    <div className="p-4 bg-zinc-50 rounded-2xl flex flex-col gap-3">
-                      <Heart size={20} className="text-zinc-400" />
-                      <span className="text-[10px] font-black uppercase tracking-widest">
-                        Wishlist
-                      </span>
-                    </div>
-                    <div className="p-4 bg-zinc-50 rounded-2xl flex flex-col gap-3">
-                      <User size={20} className="text-zinc-400" />
-                      <span className="text-[10px] font-black uppercase tracking-widest">
-                        Account
-                      </span>
-                    </div>
-                  </div>
-                </div>
+                      <div className="flex flex-col gap-4 border-l border-zinc-100 pl-4">
+                        {activeSubmenu.items.map((item) => (
+                          <Link
+                            key={item}
+                            href="#"
+                            className="text-sm font-bold text-zinc-500 hover:text-blue-600 uppercase tracking-wide"
+                          >
+                            {item}
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
 
-                <div className="flex-1" />
-
-                <div className="p-8 bg-zinc-950 rounded-t-[2.5rem] space-y-6 mt-4">
-                  <div className="flex justify-between items-center text-white">
-                    <h4 className="text-sm font-bold">Follow Our Story</h4>
-                    <div className="flex gap-3">
-                      <Link
+              {/* 3. STICKY DARK FOOTER (Always at bottom) */}
+              <div className="bg-zinc-950 p-8 rounded-t-[2.5rem] mt-auto">
+                <div className="flex flex-col gap-6 mb-8">
+                  <div className="flex justify-between items-center">
+                    <h4 className="text-[10px] font-black text-white uppercase tracking-[0.2em]">
+                      Vantage Drop
+                    </h4>
+                    {/* Social Media SVG Icons */}
+                    <div className="flex gap-4 text-white/50">
+                      {/* Instagram */}
+                      <a
                         href="#"
-                        className="p-2.5 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+                        className="hover:text-blue-500 transition-colors"
                       >
                         <svg
                           width="18"
@@ -404,38 +462,95 @@ const Navbar = () => {
                           strokeLinejoin="round"
                         >
                           <rect
-                            width="20"
-                            height="20"
                             x="2"
                             y="2"
+                            width="20"
+                            height="20"
                             rx="5"
                             ry="5"
-                          />
-                          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                          <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                          ></rect>
+                          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                         </svg>
-                      </Link>
-                      <Link
+                      </a>
+                      {/* LinkedIn */}
+                      <a
                         href="#"
-                        className="p-2.5 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+                        className="hover:text-blue-500 transition-colors"
                       >
                         <svg
-                          width="16"
-                          height="16"
+                          width="18"
+                          height="18"
                           viewBox="0 0 24 24"
-                          fill="currentColor"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         >
-                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                          <rect x="2" y="9" width="4" height="12"></rect>
+                          <circle cx="4" cy="4" r="2"></circle>
                         </svg>
-                      </Link>
+                      </a>
+                      {/* YouTube */}
+                      <a
+                        href="#"
+                        className="hover:text-blue-500 transition-colors"
+                      >
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.14 1 12 1 12s0 3.86.46 5.58a2.78 2.78 0 0 0 1.94 2c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.86 23 12 23 12s0-3.86-.46-5.58z"></path>
+                          <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon>
+                        </svg>
+                      </a>
+                      {/* Facebook */}
+                      <a
+                        href="#"
+                        className="hover:text-blue-500 transition-colors"
+                      >
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                      </a>
                     </div>
                   </div>
-                  <button className="w-full py-4 bg-blue-600 text-white rounded-xl font-bold text-[11px] uppercase tracking-widest flex items-center justify-center gap-2 shadow-[0_10px_20px_rgba(37,99,235,0.3)]">
-                    Customer Support <ArrowUpRight size={14} />
-                  </button>
-                  <p className="text-[9px] text-zinc-500 font-bold text-center uppercase tracking-[0.2em] opacity-60">
-                    © 2026 Vantage Collective
-                  </p>
+                </div>
+
+                <button className="w-full py-4 bg-blue-600 text-white rounded-xl font-black text-[9px] uppercase tracking-[0.2em] mb-6 shadow-xl shadow-blue-900/20 active:scale-95 transition-all">
+                  Customer Concierge
+                </button>
+
+                <div className="flex items-center justify-around opacity-30">
+                  <div className="flex items-center gap-2">
+                    <Globe size={10} className="text-white" />
+                    <span className="text-[8px] font-bold text-white uppercase tracking-widest">
+                      Global Shipping
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Compass size={10} className="text-white" />
+                    <span className="text-[8px] font-bold text-white uppercase tracking-widest">
+                      Crafted Legacy
+                    </span>
+                  </div>
                 </div>
               </div>
             </motion.div>
