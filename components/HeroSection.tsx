@@ -296,8 +296,7 @@ const HeroBanner = () => {
       />
       {/* 3. MAIN CONTENT LAYER */}
       <div className="relative z-10 min-h-[100dvh] flex flex-col">
-        <div className="container mx-auto px-6 lg:px-12 flex-grow flex flex-col justify-center lg:justify-center pb-12 lg:pb-0">
-          {" "}
+        <div className="container mx-auto px-6 lg:px-12 flex-grow flex flex-col justify-end lg:justify-center pb-12 lg:pb-0">
           <div className="max-w-xl space-y-6 lg:space-y-10">
             <motion.div
               key={activeIdx}
@@ -378,6 +377,7 @@ const HeroBanner = () => {
               </div>
             </motion.div>
           </div>
+
           {/* 4. MODERN MOBILE PAGINATION */}
           <div className="mt-12 lg:mt-24 pt-8 border-t border-white/5 flex items-center justify-between">
             <div className="flex gap-6">
