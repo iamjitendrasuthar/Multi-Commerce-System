@@ -236,7 +236,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="hidden lg:block bg-[#F1F2F4] w-full relative z-50 border-b border-zinc-100">
+        <div className="hidden lg:block bg-[#dcdcde] w-full relative z-50">
           <div className="max-w-[1440px] mx-auto px-10 flex items-center justify-between">
             <div className="flex items-center gap-10">
               {categories.map((cat) => (
