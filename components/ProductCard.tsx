@@ -235,7 +235,7 @@ export const TrendingSection = ({ type = "trending" }) => {
                 ease: [0.19, 1, 0.22, 1],
               }}
               viewport={{ once: true }}
-              className="min-w-[300px] md:min-w-[340px] snap-start group cursor-pointer"
+              className="min-w-[75%] md:min-w-[340px] snap-start group cursor-pointer"
             >
               <div className="relative aspect-square rounded-[2.5rem] overflow-hidden bg-[#fcfcfc] border border-zinc-100 transition-all duration-700 group-hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] group-hover:-translate-y-2">
                 <img
@@ -317,7 +317,8 @@ export const TrendingSection = ({ type = "trending" }) => {
           ))}
 
           {/* Luxury Discover Card */}
-          <div className="min-w-[280px] snap-start flex flex-col items-center justify-center border-2 border-dashed border-zinc-100 rounded-[2.5rem] group hover:bg-zinc-50 transition-all duration-700">
+          <div className="min-w-[75%] md:min-w-[340px] snap-start flex flex-col items-center justify-center border-2 border-dashed border-zinc-100 rounded-[2.5rem] group hover:bg-zinc-50 transition-all duration-700">
+            {" "}
             <div className="w-16 h-14 rounded-3xl bg-white shadow-xl flex items-center justify-center group-hover:bg-zinc-950 group-hover:text-white transition-all duration-500 group-hover:-translate-y-2">
               <ArrowRight
                 size={28}

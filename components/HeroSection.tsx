@@ -264,7 +264,8 @@ const HeroBanner = () => {
   }, [slides.length]);
 
   return (
-    <section className="relative min-h-[100dvh] bg-[#050505] overflow-hidden">
+    <section className="relative min-h-screen bg-[#050505] overflow-hidden">
+      {" "}
       {/* 1. MOBILE BACKGROUND IMAGE (Full Screen on Mobile, Split on Desktop) */}
       <div className="absolute inset-0 lg:left-1/2 lg:w-1/2 h-full z-0">
         <AnimatePresence mode="wait">
@@ -286,7 +287,6 @@ const HeroBanner = () => {
           </motion.div>
         </AnimatePresence>
       </div>
-
       {/* 2. DYNAMIC AURA BLUR */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-30 blur-[120px] pointer-events-none z-0"
@@ -294,7 +294,6 @@ const HeroBanner = () => {
           background: `radial-gradient(circle, ${slides[activeIdx].color}, transparent 70%)`,
         }}
       />
-
       {/* 3. MAIN CONTENT LAYER */}
       <div className="relative z-10 min-h-[100dvh] flex flex-col">
         <div className="container mx-auto px-6 lg:px-12 flex-grow flex flex-col justify-end lg:justify-center pb-12 lg:pb-0">
@@ -407,7 +406,6 @@ const HeroBanner = () => {
           </div>
         </div>
       </div>
-
       <style jsx>{`
         @media (max-width: 1024px) {
           .line-clamp-2 {
