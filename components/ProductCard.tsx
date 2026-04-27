@@ -287,18 +287,26 @@ export const TrendingSection = ({ type = "trending" }) => {
                     </span>
                   </div>
                 </div>
-                <h3 className="text-2xl font-black text-zinc-950 tracking-tight leading-tight group-hover:text-blue-600 transition-colors uppercase">
-                  {product.name}
-                </h3>
-                <div className="flex items-end gap-3">
-                  <span className="text-3xl font-black text-zinc-950 italic tracking-tighter">
-                    ₹{product.price.toLocaleString()}
-                  </span>
-                  <div className="flex flex-col pb-1">
-                    <span className="text-xs text-zinc-400 line-through font-bold">
+                <div className="mt-5 space-y-2 px-1">
+                  {/* Product Name - Reduced from text-2xl to text-base/lg */}
+                  <h3 className="text-base font-bold text-zinc-900 tracking-tight leading-snug group-hover:text-blue-600 transition-colors uppercase">
+                    {product.name}
+                  </h3>
+
+                  {/* Pricing Section - Cleaned up sizes */}
+                  <div className="flex items-baseline gap-2 pt-1">
+                    {/* Current Price */}
+                    <span className="text-xl font-bold text-zinc-950 tracking-tight">
+                      ₹{product.price.toLocaleString()}
+                    </span>
+
+                    {/* Original Price */}
+                    <span className="text-[11px] text-zinc-400 line-through font-medium">
                       ₹{product.originalPrice.toLocaleString()}
                     </span>
-                    <span className="text-[9px] font-black text-emerald-500 uppercase tracking-tighter">
+
+                    {/* Savings Label - Simple & Small */}
+                    <span className="text-[9px] font-bold text-emerald-600 uppercase bg-emerald-50 px-1.5 py-0.5 rounded">
                       Save ₹
                       {(product.originalPrice - product.price).toLocaleString()}
                     </span>
