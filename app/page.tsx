@@ -1,5 +1,5 @@
 import { CategoryGrid } from "@/components/CategoryGrid";
-import { Footer } from "@/components/Footer";
+import Footer from "@/components/Footer";
 import Hero from "@/components/HeroSection";
 import { TrendingSection } from "@/components/ProductCard";
 

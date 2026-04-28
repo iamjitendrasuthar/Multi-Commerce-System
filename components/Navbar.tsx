@@ -211,21 +211,35 @@ const Navbar = () => {
               </div>
 
               {/* Account & Cart */}
-              <div className="flex items-center gap-3 ml-2">
-                <Link href="/account" className="hidden sm:block ">
-                  <UserCircle2
-                    size={26}
-                    className="text-zinc-400 hover:text-black transition-colors"
-                  />
+              <div className="flex items-center gap-4 ml-2">
+                {/* LOGIN SECTION */}
+                <Link href="/login" className="hidden sm:block group">
+                  <div className="flex items-center gap-3 px-3 py-2 rounded-full transition-all duration-300">
+                    {/* Icon with Hover Animation */}
+                    <div className="relative">
+                      <UserCircle2
+                        size={24}
+                        strokeWidth={1.5}
+                        className="text-zinc-400 group-hover:text-black group-hover:scale-110 transition-all duration-500 ease-out"
+                      />
+                    </div>
+
+                    {/* Modern Login Text */}
+                    <div className="flex flex-col items-start justify-center">
+                      <span className="text-[12px] font-black uppercase tracking-[0.15em] text-zinc-900 relative">
+                        Login
+                        {/* Subtle Underline Animation */}
+                        <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-blue-600 transition-all duration-500 group-hover:w-full" />
+                      </span>
+                    </div>
+                  </div>
                 </Link>
 
+                {/* CART SECTION */}
                 <div className="relative inline-block">
-                  {/* BUTTON */}
                   <button className="group relative flex items-center gap-3 px-5 py-2.5 rounded-full overflow-hidden bg-zinc-900 text-white transition-all duration-500 shadow-xl shadow-zinc-200 active:scale-95 cursor-pointer">
-                    {/* CONTENT */}
                     <div className="relative z-10 flex items-center gap-3">
                       <ShoppingBag size={18} />
-
                       <div className="hidden sm:flex flex-col items-start leading-none border-l border-white/20 pl-3">
                         <span className="text-[9px] font-black uppercase opacity-60">
                           Cart
@@ -233,12 +247,9 @@ const Navbar = () => {
                         <span className="text-[11px] font-bold">2 Items</span>
                       </div>
                     </div>
-
-                    {/* HOVER OVERLAY */}
                     <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                   </button>
 
-                  {/* BADGE (OUTSIDE BUTTON) */}
                   <div className="absolute -top-1 -right-1 bg-blue-400 w-4 h-4 rounded-full text-[9px] flex items-center justify-center font-black border-2 border-white text-white z-20">
                     2
                   </div>
