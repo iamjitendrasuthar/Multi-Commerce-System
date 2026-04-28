@@ -138,7 +138,7 @@ const Navbar = () => {
               }`}
             >
               <button
-                className="lg:hidden p-2.5 hover:bg-zinc-100 rounded-full text-black transition-colors"
+                className="lg:hidden hover:bg-zinc-100 rounded-full text-black transition-colors"
                 onClick={() => setMobileMenu(!mobileMenu)}
               >
                 {mobileMenu ? <X size={22} /> : <Menu size={22} />}
@@ -201,10 +201,10 @@ const Navbar = () => {
 
               {/* Desktop Icons */}
               <div className="hidden md:flex items-center gap-1 h-10 px-2 bg-zinc-50 rounded-full border border-zinc-100">
-                <button className="p-2 hover:bg-white hover:shadow-sm rounded-full transition-all text-zinc-500 hover:text-black group">
+                <button className="p-2 hover:bg-white hover:shadow-sm rounded-full transition-all text-zinc-500 hover:text-black group cursor-pointer">
                   <Heart size={18} />
                 </button>
-                <button className="p-2 hover:bg-white hover:shadow-sm rounded-full transition-all text-zinc-500 hover:text-black group relative">
+                <button className="p-2 hover:bg-white hover:shadow-sm rounded-full transition-all text-zinc-500 hover:text-black group relative cursor-pointer">
                   <Bell size={18} />
                   <span className="absolute top-2 right-2 w-1.5 h-1.5 bg-blue-600 rounded-full border border-zinc-50" />
                 </button>
@@ -212,25 +212,37 @@ const Navbar = () => {
 
               {/* Account & Cart */}
               <div className="flex items-center gap-3 ml-2">
-                <Link href="/account" className="hidden sm:block">
+                <Link href="/account" className="hidden sm:block ">
                   <UserCircle2
                     size={26}
                     className="text-zinc-400 hover:text-black transition-colors"
                   />
                 </Link>
 
-                <button className="relative flex items-center gap-3 bg-zinc-900 text-white px-5 py-2.5 rounded-full hover:bg-blue-600 transition-all duration-500 shadow-xl shadow-zinc-200 group">
-                  <ShoppingBag size={18} />
-                  <div className="hidden sm:flex flex-col items-start leading-none border-l border-white/20 pl-3">
-                    <span className="text-[9px] font-black uppercase opacity-60">
-                      Cart
-                    </span>
-                    <span className="text-[11px] font-bold">2 Items</span>
-                  </div>
-                  <div className="absolute -top-1 -right-1 bg-blue-400 w-4 h-4 rounded-full text-[9px] flex items-center justify-center font-black border-2 border-white text-white">
+                <div className="relative inline-block">
+                  {/* BUTTON */}
+                  <button className="group relative flex items-center gap-3 px-5 py-2.5 rounded-full overflow-hidden bg-zinc-900 text-white transition-all duration-500 shadow-xl shadow-zinc-200 active:scale-95 cursor-pointer">
+                    {/* CONTENT */}
+                    <div className="relative z-10 flex items-center gap-3">
+                      <ShoppingBag size={18} />
+
+                      <div className="hidden sm:flex flex-col items-start leading-none border-l border-white/20 pl-3">
+                        <span className="text-[9px] font-black uppercase opacity-60">
+                          Cart
+                        </span>
+                        <span className="text-[11px] font-bold">2 Items</span>
+                      </div>
+                    </div>
+
+                    {/* HOVER OVERLAY */}
+                    <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                  </button>
+
+                  {/* BADGE (OUTSIDE BUTTON) */}
+                  <div className="absolute -top-1 -right-1 bg-blue-400 w-4 h-4 rounded-full text-[9px] flex items-center justify-center font-black border-2 border-white text-white z-20">
                     2
                   </div>
-                </button>
+                </div>
               </div>
             </div>
           </div>
