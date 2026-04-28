@@ -85,8 +85,9 @@ export default function ResetPassword() {
             </div>
           </div>
 
-          <button className="group relative w-full bg-blue-600 text-white rounded-2xl py-4 font-bold text-sm overflow-hidden transition-all active:scale-[0.98] mt-2 cursor-pointer shadow-lg shadow-blue-900/20">
-            <span className="relative z-10 flex items-center justify-center gap-2">
+          <button className="group relative w-full bg-white text-black rounded-2xl py-3.5 font-bold text-base overflow-hidden transition-all active:scale-[0.98] mt-4 cursor-pointer">
+            <div className="absolute inset-0 bg-blue-600 translate-y-[101%] group-hover:translate-y-0 transition-transform duration-300" />
+            <span className="relative z-10 flex items-center justify-center gap-2 group-hover:text-white transition-colors">
               Update Password
               <ArrowRight
                 size={16}

@@ -46,7 +46,10 @@ export default function ForgotPassword() {
             <div className="absolute inset-0 bg-blue-600 translate-y-[101%] group-hover:translate-y-0 transition-transform duration-300" />
             <span className="relative z-10 flex items-center justify-center gap-2 group-hover:text-white transition-colors">
               Send Reset Link
-              <ArrowRight size={16} />
+              <ArrowRight
+                size={16}
+                className="group-hover:translate-x-1 transition-transform"
+              />
             </span>
           </button>
         </form>
