@@ -419,12 +419,12 @@ const Navbar = () => {
                           </span>
                         </Link>
                         <Link
-                          href="/account"
+                          href="/login"
                           className="flex items-center gap-3 p-4 bg-zinc-50 rounded-2xl"
                         >
                           <User size={16} className="text-zinc-400" />
                           <span className="text-[9px] font-black uppercase text-zinc-950">
-                            Account
+                            Login
                           </span>
                         </Link>
                       </div>
