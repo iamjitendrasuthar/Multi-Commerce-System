@@ -247,11 +247,11 @@ const Navbar = () => {
                   onMouseEnter={() => setActiveCategory(cat.name)}
                   onMouseLeave={() => setActiveCategory(null)}
                 >
-                  <span className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.15em] text-zinc-500 group-hover:text-indigo-600 transition-all">
+                  <span className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.15em] text-zinc-600 group-hover:text-indigo-600 transition-all">
                     {cat.name}
                     <ChevronDown
                       size={14}
-                      className="text-zinc-300 group-hover:text-indigo-600 group-hover:rotate-180 transition-all"
+                      className="text-zinc-600 group-hover:text-indigo-600 group-hover:rotate-180 transition-all"
                     />
                   </span>
 
