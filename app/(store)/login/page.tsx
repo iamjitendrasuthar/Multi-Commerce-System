@@ -22,13 +22,13 @@ export default function AuthPage() {
   const [loginMethod, setLoginMethod] = useState("email"); // email or phone
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white flex items-center justify-center p-4 font-sans overflow-hidden selection:bg-blue-500/30">
+    <div className="min-h-screen bg-[#050505] text-white flex items-start sm:items-center justify-center p-4 font-sans overflow-hidden selection:bg-blue-500/30">
+      {" "}
       {/* Background Glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-600/10 rounded-full blur-[120px]" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-indigo-600/10 rounded-full blur-[120px]" />
       </div>
-
       <motion.div
         layout
         className="w-full max-w-[400px] bg-zinc-900/40 backdrop-blur-xl rounded-[2.5rem] shadow-2xl border border-white/10 overflow-hidden relative z-10"
@@ -196,7 +196,6 @@ export default function AuthPage() {
           </button>
         </div>
       </motion.div>
-
       <Link
         href="/"
         className="hidden sm:flex absolute top-8 left-8 group items-center gap-3 px-4 py-2 rounded-full 
