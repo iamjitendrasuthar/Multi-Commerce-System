@@ -36,17 +36,6 @@ export default function AuthPage() {
         <div className="p-6 pt-10">
           {/* Site Name / Brand */}
           <div className="mb-8 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-4"
-            >
-              <ShieldCheck size={14} className="text-blue-500" />
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400">
-                Secure Access
-              </span>
-            </motion.div>
-
             <h1 className="text-4xl font-[1000] tracking-tighter italic text-white leading-none">
               VANTAGE<span className="text-blue-600 not-italic">.</span>
             </h1>
@@ -210,10 +199,10 @@ export default function AuthPage() {
 
       <Link
         href="/"
-        className="absolute top-8 left-8 group flex items-center gap-3 px-4 py-2 rounded-full 
-             bg-white/[0.03] border border-white/5 backdrop-blur-md
-             text-zinc-400 hover:text-white hover:bg-white/[0.08] hover:border-white/10
-             transition-all duration-300 active:scale-95 z-20 cursor-pointer"
+        className="hidden sm:flex absolute top-8 left-8 group items-center gap-3 px-4 py-2 rounded-full 
+       bg-white/[0.03] border border-white/5 backdrop-blur-md
+       text-zinc-400 hover:text-white hover:bg-white/[0.08] hover:border-white/10
+       transition-all duration-300 active:scale-95 z-20 cursor-pointer"
       >
         <div className="relative flex items-center justify-center">
           <ArrowLeft
