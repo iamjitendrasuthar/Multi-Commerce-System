@@ -128,7 +128,7 @@ const Navbar = () => {
         <div
           className={`transition-all duration-500 ${isScrolled ? "py-3" : "py-6"}`}
         >
-          <div className="max-w-[1440px] mx-auto px-6 md:px-10 flex items-center justify-between gap-4">
+          <div className="max-w-[1440px] mx-auto px-5 lg:px-2 flex items-center justify-between gap-4">
             {/* Left: Hamburger (Mobile) & Logo - Hides on Mobile when Search Opens */}
             <div
               className={`flex items-center gap-4 transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] ${
@@ -237,7 +237,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:block bg-[#dcdcde] w-full relative z-50">
-          <div className="max-w-[1440px] mx-auto px-10 flex items-center justify-between">
+          <div className="max-w-[1440px] mx-auto px-10 lg:px-4 flex items-center justify-between">
             <div className="flex items-center gap-10">
               {categories.map((cat) => (
                 <div
@@ -335,9 +335,11 @@ const Navbar = () => {
                     <ChevronLeft size={16} /> Back
                   </button>
                 ) : (
-                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400">
-                    Menu
-                  </span>
+                  <Link href="/" className="relative group">
+                    <span className="text-2xl font-[1000] tracking-[-0.08em] text-black italic">
+                      VANTAGE<span className="text-blue-600 not-italic">.</span>
+                    </span>
+                  </Link>
                 )}
                 <button
                   onClick={() => {

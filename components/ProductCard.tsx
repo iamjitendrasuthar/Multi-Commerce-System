@@ -215,7 +215,7 @@ export const TrendingSection = ({ type = "trending" }) => {
 
   return (
     <section className="py-5 bg-white overflow-hidden selection:bg-blue-100">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-10">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-4">
         {/* --- Dynamic Header --- */}
         <div className="flex items-end justify-between mb-16">
           <div className="space-y-4">
