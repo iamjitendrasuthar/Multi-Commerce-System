@@ -326,7 +326,8 @@ const Navbar = () => {
               className="fixed inset-0 top-0 left-0 w-full h-[100dvh] bg-white lg:hidden z-[300] flex flex-col shadow-2xl"
             >
               {/* 1. HEADER (Inside Dropdown) */}
-              <div className="p-6 flex items-center justify-between border-b border-zinc-50">
+              <div className="p-6 flex items-center justify-between border-b border-zinc-50 h-[72px] relative">
+                {" "}
                 {activeSubmenu ? (
                   <button
                     onClick={() => setActiveSubmenu(null)}

@@ -14,7 +14,7 @@ export const Footer = () => {
 
   return (
     <footer className="bg-zinc-950 text-zinc-400 pt-20 pb-10 font-sans">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-1">
         {/* --- Phase 1: Trust Signals (The eCommerce Must-Haves) --- */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 pb-16 border-b border-zinc-800">
           {[
