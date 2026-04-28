@@ -62,7 +62,7 @@ export default function AuthPage() {
                   <input
                     type="text"
                     placeholder="Full Name"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 text-sm outline-none focus:border-blue-500/50 transition-all text-white placeholder:text-zinc-600"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 text-base outline-none focus:border-blue-500/50 transition-all text-white placeholder:text-zinc-600"
                   />
                 </motion.div>
               )}
@@ -94,7 +94,7 @@ export default function AuthPage() {
                   <input
                     type="email"
                     placeholder="Email Address"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 text-sm outline-none focus:border-blue-500/50 transition-all text-white placeholder:text-zinc-600"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 text-base outline-none focus:border-blue-500/50 transition-all text-white placeholder:text-zinc-600"
                   />
                 </>
               ) : (
@@ -106,7 +106,7 @@ export default function AuthPage() {
                   <input
                     type="tel"
                     placeholder="+91 00000 00000"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 text-sm outline-none focus:border-blue-500/50 transition-all text-white placeholder:text-zinc-600 font-mono tracking-widest"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 text-base outline-none focus:border-blue-500/50 transition-all text-white placeholder:text-zinc-600 font-mono tracking-widest"
                   />
                 </>
               )}
@@ -120,7 +120,7 @@ export default function AuthPage() {
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
-                className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 pl-12 pr-12 text-sm outline-none focus:border-blue-500/50 transition-all text-white placeholder:text-zinc-600"
+                className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 pl-12 pr-12 text-base outline-none focus:border-blue-500/50 transition-all text-white placeholder:text-zinc-600"
               />
               <button
                 type="button"
@@ -146,7 +146,7 @@ export default function AuthPage() {
               </div>
             )}
 
-            <button className="group relative w-full bg-white text-black rounded-2xl py-3.5 font-bold text-sm overflow-hidden transition-all active:scale-[0.98] mt-4 cursor-pointer">
+            <button className="group relative w-full bg-white text-black rounded-2xl py-3.5 font-bold text-base overflow-hidden transition-all active:scale-[0.98] mt-4 cursor-pointer">
               <div className="absolute inset-0 bg-blue-600 translate-y-[101%] group-hover:translate-y-0 transition-transform duration-300" />
               <span className="relative z-10 flex items-center justify-center gap-2 group-hover:text-white transition-colors">
                 {isLogin ? "Sign In" : "Create Account"}
