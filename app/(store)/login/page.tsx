@@ -8,6 +8,8 @@ import {
   User,
   ArrowLeft,
   ShieldCheck,
+  EyeOff,
+  Eye,
 } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
@@ -15,7 +17,7 @@ import Link from "next/link";
 
 export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
-
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="min-h-screen bg-[#050505] text-white flex items-center justify-center p-4 font-sans overflow-hidden selection:bg-blue-500/30">
       {/* Background Glow */}
@@ -86,16 +88,29 @@ export default function AuthPage() {
               />
             </div>
 
-            <div className="relative">
+            <div className="relative group">
               <Lock
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 group-focus-within:text-blue-500 transition-colors"
                 size={18}
               />
               <input
-                type="password"
+                type={showPassword ? "text" : "password"} // 3. Dynamic type
                 placeholder="Password"
-                className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 text-sm outline-none focus:border-blue-500/50 transition-all text-white placeholder:text-zinc-600"
+                className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 pl-12 pr-12 text-sm outline-none focus:border-blue-500/50 transition-all text-white placeholder:text-zinc-600"
               />
+
+              {/* 4. Eye Toggle Button */}
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white transition-colors cursor-pointer p-1"
+              >
+                {showPassword ? (
+                  <EyeOff size={18} strokeWidth={2.5} />
+                ) : (
+                  <Eye size={18} strokeWidth={2.5} />
+                )}
+              </button>
             </div>
 
             {isLogin && (

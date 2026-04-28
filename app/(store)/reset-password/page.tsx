@@ -1,8 +1,18 @@
 "use client";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ShieldCheck, Lock, CheckCircle2, ArrowRight } from "lucide-react";
+import {
+  ShieldCheck,
+  Lock,
+  CheckCircle2,
+  ArrowRight,
+  Eye,
+  EyeOff,
+} from "lucide-react";
 
 export default function ResetPassword() {
+  const [showNewPass, setShowNewPass] = useState(false);
+  const [showConfirmPass, setShowConfirmPass] = useState(false);
   return (
     <div className="min-h-screen bg-[#050505] text-white flex items-center justify-center p-4 font-sans overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -27,28 +37,44 @@ export default function ResetPassword() {
         </div>
 
         <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-          <div className="relative">
+          {/* New Password Field */}
+          <div className="relative group">
             <Lock
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 group-focus-within:text-blue-500 transition-colors"
               size={18}
             />
             <input
-              type="password"
+              type={showNewPass ? "text" : "password"}
               placeholder="New Password"
-              className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-sm outline-none focus:border-blue-500/50 transition-all text-white placeholder:text-zinc-600"
+              className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-12 text-sm outline-none focus:border-blue-500/50 transition-all text-white placeholder:text-zinc-600"
             />
+            <button
+              type="button"
+              onClick={() => setShowNewPass(!showNewPass)}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white transition-colors cursor-pointer p-1"
+            >
+              {showNewPass ? <EyeOff size={18} /> : <Eye size={18} />}
+            </button>
           </div>
 
-          <div className="relative">
+          {/* Confirm Password Field */}
+          <div className="relative group">
             <Lock
-              className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 group-focus-within:text-blue-500 transition-colors"
               size={18}
             />
             <input
-              type="password"
+              type={showConfirmPass ? "text" : "password"}
               placeholder="Confirm Password"
-              className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-4 text-sm outline-none focus:border-blue-500/50 transition-all text-white placeholder:text-zinc-600"
+              className="w-full bg-white/5 border border-white/10 rounded-2xl py-4 pl-12 pr-12 text-sm outline-none focus:border-blue-500/50 transition-all text-white placeholder:text-zinc-600"
             />
+            <button
+              type="button"
+              onClick={() => setShowConfirmPass(!showConfirmPass)}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white transition-colors cursor-pointer p-1"
+            >
+              {showConfirmPass ? <EyeOff size={18} /> : <Eye size={18} />}
+            </button>
           </div>
 
           {/* Password Strength Requirement Hint */}
