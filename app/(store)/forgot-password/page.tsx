@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function ForgotPassword() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white flex items-center justify-center p-4 font-sans overflow-hidden">
+    <div className="min-h-screen bg-[#050505] text-white flex items-start sm:items-center justify-center p-4 font-sans overflow-hidden">
       {/* Background Glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-600/10 rounded-full blur-[120px]" />
