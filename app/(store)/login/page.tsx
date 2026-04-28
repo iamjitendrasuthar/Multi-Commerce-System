@@ -10,14 +10,17 @@ import {
   ShieldCheck,
   EyeOff,
   Eye,
+  Smartphone,
 } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 import Link from "next/link";
 
 export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
+  const [loginMethod, setLoginMethod] = useState("email"); // email or phone
+
   return (
     <div className="min-h-screen bg-[#050505] text-white flex items-center justify-center p-4 font-sans overflow-hidden selection:bg-blue-500/30">
       {/* Background Glow */}
@@ -76,16 +79,48 @@ export default function AuthPage() {
               )}
             </AnimatePresence>
 
+            {/* Toggle Login Method */}
+            <div className="flex bg-white/5 p-1 rounded-xl mb-4 border border-white/5">
+              <button
+                onClick={() => setLoginMethod("email")}
+                className={`cursor-pointer flex-1 py-1.5 text-[10px] font-bold uppercase tracking-widest rounded-lg transition-all ${loginMethod === "email" ? "bg-white text-black" : "text-zinc-500"}`}
+              >
+                Email
+              </button>
+              <button
+                onClick={() => setLoginMethod("phone")}
+                className={`cursor-pointer flex-1 py-1.5 text-[10px] font-bold uppercase tracking-widest rounded-lg transition-all ${loginMethod === "phone" ? "bg-white text-black" : "text-zinc-500"}`}
+              >
+                Phone
+              </button>
+            </div>
+
             <div className="relative">
-              <Mail
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"
-                size={18}
-              />
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 text-sm outline-none focus:border-blue-500/50 transition-all text-white placeholder:text-zinc-600"
-              />
+              {loginMethod === "email" ? (
+                <>
+                  <Mail
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"
+                    size={18}
+                  />
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 text-sm outline-none focus:border-blue-500/50 transition-all text-white placeholder:text-zinc-600"
+                  />
+                </>
+              ) : (
+                <>
+                  <Smartphone
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"
+                    size={18}
+                  />
+                  <input
+                    type="tel"
+                    placeholder="+91 00000 00000"
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 pl-12 pr-4 text-sm outline-none focus:border-blue-500/50 transition-all text-white placeholder:text-zinc-600 font-mono tracking-widest"
+                  />
+                </>
+              )}
             </div>
 
             <div className="relative group">
@@ -94,12 +129,10 @@ export default function AuthPage() {
                 size={18}
               />
               <input
-                type={showPassword ? "text" : "password"} // 3. Dynamic type
+                type={showPassword ? "text" : "password"}
                 placeholder="Password"
                 className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 pl-12 pr-12 text-sm outline-none focus:border-blue-500/50 transition-all text-white placeholder:text-zinc-600"
               />
-
-              {/* 4. Eye Toggle Button */}
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
@@ -115,9 +148,12 @@ export default function AuthPage() {
 
             {isLogin && (
               <div className="flex justify-end pr-1">
-                <button className="text-[11px] font-medium text-zinc-500 hover:text-blue-400 transition-colors cursor-pointer">
+                <Link
+                  href="/forgot-password"
+                  className="text-[11px] font-medium text-zinc-500 hover:text-blue-400 transition-colors cursor-pointer"
+                >
                   Forgot password?
-                </button>
+                </Link>
               </div>
             )}
 
@@ -136,7 +172,9 @@ export default function AuthPage() {
               <div className="w-full border-t border-white/5" />
             </div>
             <div className="relative flex justify-center text-[10px] font-bold uppercase tracking-widest text-zinc-600">
-              <span className="bg-[#0b0b0b] px-4">Social Login</span>
+              <span className="bg-[#0b0b0b] px-4 text-[9px]">
+                One-Click Login
+              </span>
             </div>
           </div>
 
@@ -148,9 +186,9 @@ export default function AuthPage() {
               </span>
             </button>
             <button className="flex items-center justify-center gap-2 py-3 border border-white/10 rounded-2xl hover:bg-white/5 transition-all group active:scale-95 cursor-pointer">
-              <FaGithub size={18} />
+              <FaFacebook size={18} className="text-[#1877F2]" />
               <span className="text-xs font-semibold text-zinc-400 group-hover:text-white">
-                GitHub
+                Facebook
               </span>
             </button>
           </div>
@@ -177,19 +215,15 @@ export default function AuthPage() {
              text-zinc-400 hover:text-white hover:bg-white/[0.08] hover:border-white/10
              transition-all duration-300 active:scale-95 z-20 cursor-pointer"
       >
-        {/* Icon Wrapper with animation */}
         <div className="relative flex items-center justify-center">
           <ArrowLeft
             size={16}
             className="group-hover:-translate-x-1 transition-transform duration-300 ease-out"
           />
-
-          {/* Subtle glow effect on hover */}
           <div className="absolute inset-0 bg-blue-500/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
         </div>
-
         <span className="text-[11px] font-bold uppercase tracking-[0.15em]">
-          Return <span className="hidden sm:inline">to Home</span>
+          Back <span className="hidden sm:inline">to Shop</span>
         </span>
       </Link>
     </div>
