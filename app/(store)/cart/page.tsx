@@ -15,7 +15,7 @@ import {
   ChevronLeft,
 } from "lucide-react";
 import Link from "next/link";
-
+import { useRouter } from "next/navigation";
 interface Address {
   id: number;
   tag: string;
@@ -27,6 +27,7 @@ interface Address {
 
 export default function UltimateCheckout() {
   const [step, setStep] = useState(1);
+  const router = useRouter();
   const [items, setItems] = useState([
     {
       id: 1,
@@ -110,12 +111,22 @@ export default function UltimateCheckout() {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
           {/* LEFT: EXIT */}
           <div className="flex-1 lg:w-1/4">
-            <Link href="/cart" className="flex items-center gap-2 group w-fit">
+            <Link
+              href="/cart"
+              className="flex items-center gap-2 group w-fit"
+              onClick={() => {
+                if (window.history.length > 1) {
+                  router.back();
+                } else {
+                  router.push("/cart");
+                }
+              }}
+            >
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-zinc-100 flex items-center justify-center group-hover:bg-zinc-50 transition-colors">
                 <ChevronLeft size={16} className="text-zinc-600" />
               </div>
               <span className="hidden lg:block text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 group-hover:text-zinc-950 transition-colors">
-                Exit
+                Back
               </span>
             </Link>
           </div>

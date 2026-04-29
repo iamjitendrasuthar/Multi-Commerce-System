@@ -236,24 +236,26 @@ const Navbar = () => {
                 </Link>
 
                 {/* CART SECTION */}
-                <div className="relative inline-block">
-                  <button className="group relative flex items-center gap-3 px-5 py-2.5 rounded-full overflow-hidden bg-zinc-900 text-white transition-all duration-500 shadow-xl shadow-zinc-200 active:scale-95 cursor-pointer">
-                    <div className="relative z-10 flex items-center gap-3">
-                      <ShoppingBag size={18} />
-                      <div className="hidden sm:flex flex-col items-start leading-none border-l border-white/20 pl-3">
-                        <span className="text-[9px] font-black uppercase opacity-60">
-                          Cart
-                        </span>
-                        <span className="text-[11px] font-bold">2 Items</span>
+                <Link href={"/cart"}>
+                  <div className="relative inline-block">
+                    <button className="group relative flex items-center gap-3 px-5 py-2.5 rounded-full overflow-hidden bg-zinc-900 text-white transition-all duration-500 shadow-xl shadow-zinc-200 active:scale-95 cursor-pointer">
+                      <div className="relative z-10 flex items-center gap-3">
+                        <ShoppingBag size={18} />
+                        <div className="hidden sm:flex flex-col items-start leading-none border-l border-white/20 pl-3">
+                          <span className="text-[9px] font-black uppercase opacity-60">
+                            Cart
+                          </span>
+                          <span className="text-[11px] font-bold">2 Items</span>
+                        </div>
                       </div>
-                    </div>
-                    <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                  </button>
+                      <div className="absolute inset-0 bg-blue-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                    </button>
 
-                  <div className="absolute -top-1 -right-1 bg-blue-400 w-4 h-4 rounded-full text-[9px] flex items-center justify-center font-black border-2 border-white text-white z-20">
-                    2
+                    <div className="absolute -top-1 -right-1 bg-blue-400 w-4 h-4 rounded-full text-[9px] flex items-center justify-center font-black border-2 border-white text-white z-20">
+                      2
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
             </div>
           </div>

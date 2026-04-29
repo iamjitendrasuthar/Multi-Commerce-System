@@ -32,7 +32,7 @@ export default function PaymentForm() {
                 <ChevronLeft size={16} className="text-zinc-600" />
               </div>
               <span className="hidden lg:block text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 group-hover:text-zinc-950 transition-colors">
-                Exit
+                Back
               </span>
             </Link>
           </div>
